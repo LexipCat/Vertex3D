@@ -1,0 +1,421 @@
+#include"v3deCore.h"
+
+void createGizmo(Object* obj) {
+    obj->isCustomChar = true;
+    obj->v_Length = 4;
+    obj->l_Length = 3;
+
+    resetTransform(&obj->transform);
+
+    obj->verteicesChar = (char*)malloc(sizeof(char) * obj->v_Length);
+    obj->vertices = (Vector3*)malloc(sizeof(Vector3) * obj->v_Length);
+    obj->vertexLine = (Line*)malloc(sizeof(Line) * obj->l_Length);
+
+    obj->vertices[0] = { 0,0,0 };
+    obj->vertices[1] = { 1,0,0 };
+    obj->vertices[2] = { 0,1,0 };
+    obj->vertices[3] = { 0,0,1 };
+
+    obj->verteicesChar[0] = 'O';
+    obj->verteicesChar[1] = 'X';
+    obj->verteicesChar[2] = 'Y';
+    obj->verteicesChar[3] = 'Z';
+
+    obj->vertexLine[0] = { 0,1 };
+    obj->vertexLine[1] = { 0,2 };
+    obj->vertexLine[2] = { 0,3 };
+}
+
+void createTeapot(Object* obj) {
+    obj->isCustomChar = false;
+    obj->v_Length = 306;
+    obj->l_Length = 305;
+
+    resetTransform(&obj->transform);
+
+    obj->vertices = (Vector3*)malloc(sizeof(Vector3) * obj->v_Length);
+    obj->vertexLine = (Line*)malloc(sizeof(Line) * obj->l_Length);
+
+    for (int i = 0; i < obj->v_Length - 1; i++) {
+        obj->vertexLine[i] = { i,i + 1 };
+    }
+
+    obj->vertices[0] = { 1.40000,0.00000,2.40000 };
+    obj->vertices[1] = { 1.40000,-0.78400,2.40000 };
+    obj->vertices[2] = { 0.78000,-1.40000,2.40000 };
+    obj->vertices[3] = { 0.00000,-1.40000,2.40000 };
+    obj->vertices[4] = { 1.33750,0.00000,2.53125 };
+    obj->vertices[5] = { 1.33750,-0.74900,2.53125 };
+    obj->vertices[6] = { 0.74900,-1.33750,2.53125 };
+    obj->vertices[7] = { 0.00000,-1.33750,2.53125 };
+    obj->vertices[8] = { 1.43750,0.00000,2.53125 };
+    obj->vertices[9] = { 1.43750,-0.80500,2.53125 };
+    obj->vertices[10] = { 0.80500,-1.43750,2.53125 };
+    obj->vertices[11] = { 0.00000,-1.43750,2.53125 };
+    obj->vertices[12] = { 1.50000,0.00000,2.40000 };
+    obj->vertices[13] = { 1.50000,-0.84000,2.40000 };
+    obj->vertices[14] = { 0.84000,-1.50000,2.40000 };
+    obj->vertices[15] = { 0.00000,-1.50000,2.40000 };
+    obj->vertices[16] = { -0.78400,-1.40000,2.40000 };
+    obj->vertices[17] = { -1.40000,-0.78400,2.40000 };
+    obj->vertices[18] = { -1.40000,0.00000,2.40000 };
+    obj->vertices[19] = { -0.74900,-1.33750,2.53125 };
+    obj->vertices[20] = { -1.33750,-0.74900,2.53125 };
+    obj->vertices[21] = { -1.33750,0.00000,2.53125 };
+    obj->vertices[22] = { -0.80500,-1.43750,2.53125 };
+    obj->vertices[23] = { -1.43750,-0.80500,2.53125 };
+    obj->vertices[24] = { -1.43750,0.00000,2.53125 };
+    obj->vertices[25] = { -0.84000,-1.50000,2.40000 };
+    obj->vertices[26] = { -1.50000,-0.84000,2.40000 };
+    obj->vertices[27] = { -1.50000,0.00000,2.40000 };
+    obj->vertices[28] = { -1.40000,0.78400,2.40000 };
+    obj->vertices[29] = { -0.78400,1.40000,2.40000 };
+    obj->vertices[30] = { 0.00000,1.40000,2.40000 };
+    obj->vertices[31] = { -1.33750,0.74900,2.53125 };
+    obj->vertices[32] = { -0.74900,1.33750,2.53125 };
+    obj->vertices[33] = { 0.00000,1.33750,2.53125 };
+    obj->vertices[34] = { -1.43750,0.80500,2.53125 };
+    obj->vertices[35] = { -0.80500,1.43750,2.53125 };
+    obj->vertices[36] = { 0.00000,1.43750,2.53125 };
+    obj->vertices[37] = { -1.50000,0.84000,2.40000 };
+    obj->vertices[38] = { -0.84000,1.50000,2.40000 };
+    obj->vertices[39] = { 0.00000,1.50000,2.40000 };
+    obj->vertices[40] = { 0.78400,1.40000,2.40000 };
+    obj->vertices[41] = { 1.40000,0.78400,2.40000 };
+    obj->vertices[42] = { 0.74900,1.33750,2.53125 };
+    obj->vertices[43] = { 1.33750,0.74900,2.53125 };
+    obj->vertices[44] = { 0.80500,1.43750,2.53125 };
+    obj->vertices[45] = { 1.43750,0.80500,2.53125 };
+    obj->vertices[46] = { 0.84000,1.50000,2.40000 };
+    obj->vertices[47] = { 1.50000,0.84000,2.40000 };
+    obj->vertices[48] = { 1.75000,0.00000,1.87500 };
+    obj->vertices[49] = { 1.75000,-0.98000,1.87500 };
+    obj->vertices[50] = { 0.98000,-1.75000,1.87500 };
+    obj->vertices[51] = { 0.00000,-1.75000,1.87500 };
+    obj->vertices[52] = { 2.00000,0.00000,1.35000 };
+    obj->vertices[53] = { 2.00000,-1.12000,1.35000 };
+    obj->vertices[54] = { 1.12000,-2.00000,1.35000 };
+    obj->vertices[55] = { 0.00000,-2.00000,1.35000 };
+    obj->vertices[56] = { 2.00000,0.00000,0.90000 };
+    obj->vertices[57] = { 2.00000,-1.12000,0.90000 };
+    obj->vertices[58] = { 1.12000,-2.00000,0.90000 };
+    obj->vertices[59] = { 0.00000,-2.00000,0.90000 };
+    obj->vertices[60] = { -0.98000,-1.75000,1.87500 };
+    obj->vertices[61] = { -1.75000,-0.98000,1.87500 };
+    obj->vertices[62] = { -1.75000,0.00000,1.87500 };
+    obj->vertices[63] = { -1.12000,-2.00000,1.35000 };
+    obj->vertices[64] = { -2.00000,-1.12000,1.35000 };
+    obj->vertices[65] = { -2.00000,0.00000,1.35000 };
+    obj->vertices[66] = { -1.12000,-2.00000,0.90000 };
+    obj->vertices[67] = { -2.00000,-1.12000,0.90000 };
+    obj->vertices[68] = { -2.00000,0.00000,0.90000 };
+    obj->vertices[69] = { -1.75000,0.98000,1.87500 };
+    obj->vertices[70] = { -0.98000,1.75000,1.87500 };
+    obj->vertices[71] = { 0.00000,1.75000,1.87500 };
+    obj->vertices[72] = { -2.00000,1.12000,1.35000 };
+    obj->vertices[73] = { -1.12000,2.00000,1.35000 };
+    obj->vertices[74] = { 0.00000,2.00000,1.35000 };
+    obj->vertices[75] = { -2.00000,1.12000,0.90000 };
+    obj->vertices[76] = { -1.12000,2.00000,0.90000 };
+    obj->vertices[77] = { 0.00000,2.00000,0.90000 };
+    obj->vertices[78] = { 0.98000,1.75000,1.87500 };
+    obj->vertices[79] = { 1.75000,0.98000,1.87500 };
+    obj->vertices[80] = { 1.12000,2.00000,1.35000 };
+    obj->vertices[81] = { 2.00000,1.12000,1.35000 };
+    obj->vertices[82] = { 1.12000,2.00000,0.90000 };
+    obj->vertices[83] = { 2.00000,1.12000,0.90000 };
+    obj->vertices[84] = { 2.00000,0.00000,0.45000 };
+    obj->vertices[85] = { 2.00000,-1.12000,0.45000 };
+    obj->vertices[86] = { 1.12000,-2.00000,0.45000 };
+    obj->vertices[87] = { 0.00000,-2.00000,0.45000 };
+    obj->vertices[88] = { 1.50000,0.00000,0.22500 };
+    obj->vertices[89] = { 1.50000,-0.84000,0.22500 };
+    obj->vertices[90] = { 0.84000,-1.50000,0.22500 };
+    obj->vertices[91] = { 0.00000,-1.50000,0.22500 };
+    obj->vertices[92] = { 1.50000,0.00000,0.15000 };
+    obj->vertices[93] = { 1.50000,-0.84000,0.15000 };
+    obj->vertices[94] = { 0.84000,-1.50000,0.15000 };
+    obj->vertices[95] = { 0.00000,-1.50000,0.15000 };
+    obj->vertices[96] = { -1.12000,-2.00000,0.45000 };
+    obj->vertices[97] = { -2.00000,-1.12000,0.45000 };
+    obj->vertices[98] = { -2.00000,0.00000,0.45000 };
+    obj->vertices[99] = { -0.84000,-1.50000,0.22500 };
+    obj->vertices[100] = { -1.50000,-0.84000,0.22500 };
+    obj->vertices[101] = { -1.50000,0.00000,0.22500 };
+    obj->vertices[102] = { -0.84000,-1.50000,0.15000 };
+    obj->vertices[103] = { -1.50000,-0.84000,0.15000 };
+    obj->vertices[104] = { -1.50000,0.00000,0.15000 };
+    obj->vertices[105] = { -2.00000,1.12000,0.45000 };
+    obj->vertices[106] = { -1.12000,2.00000,0.45000 };
+    obj->vertices[107] = { 0.00000,2.00000,0.45000 };
+    obj->vertices[108] = { -1.50000,0.84000,0.22500 };
+    obj->vertices[109] = { -0.84000,1.50000,0.22500 };
+    obj->vertices[110] = { 0.00000,1.50000,0.22500 };
+    obj->vertices[111] = { -1.50000,0.84000,0.15000 };
+    obj->vertices[112] = { -0.84000,1.50000,0.15000 };
+    obj->vertices[113] = { 0.00000,1.50000,0.15000 };
+    obj->vertices[114] = { 1.12000,2.00000,0.45000 };
+    obj->vertices[115] = { 2.00000,1.12000,0.45000 };
+    obj->vertices[116] = { 0.84000,1.50000,0.22500 };
+    obj->vertices[117] = { 1.50000,0.84000,0.22500 };
+    obj->vertices[118] = { 0.84000,1.50000,0.15000 };
+    obj->vertices[119] = { 1.50000,0.84000,0.15000 };
+    obj->vertices[120] = { -1.60000,0.00000,2.02500 };
+    obj->vertices[121] = { -1.60000,-0.30000,2.02500 };
+    obj->vertices[122] = { -1.50000,-0.30000,2.25000 };
+    obj->vertices[123] = { -1.50000,0.00000,2.25000 };
+    obj->vertices[124] = { -2.30000,0.00000,2.02500 };
+    obj->vertices[125] = { -2.30000,-0.30000,2.02500 };
+    obj->vertices[126] = { -2.50000,-0.30000,2.25000 };
+    obj->vertices[127] = { -2.50000,0.00000,2.25000 };
+    obj->vertices[128] = { -2.70000,0.00000,2.02500 };
+    obj->vertices[129] = { -2.70000,-0.30000,2.02500 };
+    obj->vertices[130] = { -3.00000,-0.30000,2.25000 };
+    obj->vertices[131] = { -3.00000,0.00000,2.25000 };
+    obj->vertices[132] = { -2.70000,0.00000,1.80000 };
+    obj->vertices[133] = { -2.70000,-0.30000,1.80000 };
+    obj->vertices[134] = { -3.00000,-0.30000,1.80000 };
+    obj->vertices[135] = { -3.00000,0.00000,1.80000 };
+    obj->vertices[136] = { -1.50000,0.30000,2.25000 };
+    obj->vertices[137] = { -1.60000,0.30000,2.02500 };
+    obj->vertices[138] = { -2.50000,0.30000,2.25000 };
+    obj->vertices[139] = { -2.30000,0.30000,2.02500 };
+    obj->vertices[140] = { -3.00000,0.30000,2.25000 };
+    obj->vertices[141] = { -2.70000,0.30000,2.02500 };
+    obj->vertices[142] = { -3.00000,0.30000,1.80000 };
+    obj->vertices[143] = { -2.70000,0.30000,1.80000 };
+    obj->vertices[144] = { -2.70000,0.00000,1.57500 };
+    obj->vertices[145] = { -2.70000,-0.30000,1.57500 };
+    obj->vertices[146] = { -3.00000,-0.30000,1.35000 };
+    obj->vertices[147] = { -3.00000,0.00000,1.35000 };
+    obj->vertices[148] = { -2.50000,0.00000,1.12500 };
+    obj->vertices[149] = { -2.50000,-0.30000,1.12500 };
+    obj->vertices[150] = { -2.65000,-0.30000,0.93750 };
+    obj->vertices[151] = { -2.65000,0.00000,0.93750 };
+    obj->vertices[152] = { -2.00000,-0.30000,0.90000 };
+    obj->vertices[153] = { -1.90000,-0.30000,0.60000 };
+    obj->vertices[154] = { -1.90000,0.00000,0.60000 };
+    obj->vertices[155] = { -3.00000,0.30000,1.35000 };
+    obj->vertices[156] = { -2.70000,0.30000,1.57500 };
+    obj->vertices[157] = { -2.65000,0.30000,0.93750 };
+    obj->vertices[158] = { -2.50000,0.30000,1.12500 };
+    obj->vertices[159] = { -1.90000,0.30000,0.60000 };
+    obj->vertices[160] = { -2.00000,0.30000,0.90000 };
+    obj->vertices[161] = { 1.70000,0.00000,1.42500 };
+    obj->vertices[162] = { 1.70000,-0.66000,1.42500 };
+    obj->vertices[163] = { 1.70000,-0.66000,0.60000 };
+    obj->vertices[164] = { 1.70000,0.00000,0.60000 };
+    obj->vertices[165] = { 2.60000,0.00000,1.42500 };
+    obj->vertices[166] = { 2.60000,-0.66000,1.42500 };
+    obj->vertices[167] = { 3.10000,-0.66000,0.82500 };
+    obj->vertices[168] = { 3.10000,0.00000,0.82500 };
+    obj->vertices[169] = { 2.30000,0.00000,2.10000 };
+    obj->vertices[170] = { 2.30000,-0.25000,2.10000 };
+    obj->vertices[171] = { 2.40000,-0.25000,2.02500 };
+    obj->vertices[172] = { 2.40000,0.00000,2.02500 };
+    obj->vertices[173] = { 2.70000,0.00000,2.40000 };
+    obj->vertices[174] = { 2.70000,-0.25000,2.40000 };
+    obj->vertices[175] = { 3.30000,-0.25000,2.40000 };
+    obj->vertices[176] = { 3.30000,0.00000,2.40000 };
+    obj->vertices[177] = { 1.70000,0.66000,0.60000 };
+    obj->vertices[178] = { 1.70000,0.66000,1.42500 };
+    obj->vertices[179] = { 3.10000,0.66000,0.82500 };
+    obj->vertices[180] = { 2.60000,0.66000,1.42500 };
+    obj->vertices[181] = { 2.40000,0.25000,2.02500 };
+    obj->vertices[182] = { 2.30000,0.25000,2.10000 };
+    obj->vertices[183] = { 3.30000,0.25000,2.40000 };
+    obj->vertices[184] = { 2.70000,0.25000,2.40000 };
+    obj->vertices[185] = { 2.80000,0.00000,2.47500 };
+    obj->vertices[186] = { 2.80000,-0.25000,2.47500 };
+    obj->vertices[187] = { 3.52500,-0.25000,2.49375 };
+    obj->vertices[188] = { 3.52500,0.00000,2.49375 };
+    obj->vertices[189] = { 2.90000,0.00000,2.47500 };
+    obj->vertices[190] = { 2.90000,-0.15000,2.47500 };
+    obj->vertices[191] = { 3.45000,-0.15000,2.51250 };
+    obj->vertices[192] = { 3.45000,0.00000,2.51250 };
+    obj->vertices[193] = { 2.80000,0.00000,2.40000 };
+    obj->vertices[194] = { 2.80000,-0.15000,2.40000 };
+    obj->vertices[195] = { 3.20000,-0.15000,2.40000 };
+    obj->vertices[196] = { 3.20000,0.00000,2.40000 };
+    obj->vertices[197] = { 3.52500,0.25000,2.49375 };
+    obj->vertices[198] = { 2.80000,0.25000,2.47500 };
+    obj->vertices[199] = { 3.45000,0.15000,2.51250 };
+    obj->vertices[200] = { 2.90000,0.15000,2.47500 };
+    obj->vertices[201] = { 3.20000,0.15000,2.40000 };
+    obj->vertices[202] = { 2.80000,0.15000,2.40000 };
+    obj->vertices[203] = { 0.00000,0.00000,3.15000 };
+    obj->vertices[204] = { 0.00000,-0.00200,3.15000 };
+    obj->vertices[205] = { 0.00200,0.00000,3.15000 };
+    obj->vertices[206] = { 0.80000,0.00000,3.15000 };
+    obj->vertices[207] = { 0.80000,-0.45000,3.15000 };
+    obj->vertices[208] = { 0.45000,-0.80000,3.15000 };
+    obj->vertices[209] = { 0.00000,-0.80000,3.15000 };
+    obj->vertices[210] = { 0.00000,0.00000,2.85000 };
+    obj->vertices[211] = { 0.20000,0.00000,2.70000 };
+    obj->vertices[212] = { 0.20000,-0.11200,2.70000 };
+    obj->vertices[213] = { 0.11200,-0.20000,2.70000 };
+    obj->vertices[214] = { 0.00000,-0.20000,2.70000 };
+    obj->vertices[215] = { -0.00200,0.00000,3.15000 };
+    obj->vertices[216] = { -0.45000,-0.80000,3.15000 };
+    obj->vertices[217] = { -0.80000,-0.45000,3.15000 };
+    obj->vertices[218] = { -0.80000,0.00000,3.15000 };
+    obj->vertices[219] = { -0.11200,-0.20000,2.70000 };
+    obj->vertices[220] = { -0.20000,-0.11200,2.70000 };
+    obj->vertices[221] = { -0.20000,0.00000,2.70000 };
+    obj->vertices[222] = { 0.00000,0.00200,3.15000 };
+    obj->vertices[223] = { -0.80000,0.45000,3.15000 };
+    obj->vertices[224] = { -0.45000,0.80000,3.15000 };
+    obj->vertices[225] = { 0.00000,0.80000,3.15000 };
+    obj->vertices[226] = { -0.20000,0.11200,2.70000 };
+    obj->vertices[227] = { -0.11200,0.20000,2.70000 };
+    obj->vertices[228] = { 0.00000,0.20000,2.70000 };
+    obj->vertices[229] = { 0.45000,0.80000,3.15000 };
+    obj->vertices[230] = { 0.80000,0.45000,3.15000 };
+    obj->vertices[231] = { 0.11200,0.20000,2.70000 };
+    obj->vertices[232] = { 0.20000,0.11200,2.70000 };
+    obj->vertices[233] = { 0.40000,0.00000,2.55000 };
+    obj->vertices[234] = { 0.40000,-0.22400,2.55000 };
+    obj->vertices[235] = { 0.22400,-0.40000,2.55000 };
+    obj->vertices[236] = { 0.00000,-0.40000,2.55000 };
+    obj->vertices[237] = { 1.30000,0.00000,2.55000 };
+    obj->vertices[238] = { 1.30000,-0.72800,2.55000 };
+    obj->vertices[239] = { 0.72800,-1.30000,2.55000 };
+    obj->vertices[240] = { 0.00000,-1.30000,2.55000 };
+    obj->vertices[241] = { 1.30000,0.00000,2.40000 };
+    obj->vertices[242] = { 1.30000,-0.72800,2.40000 };
+    obj->vertices[243] = { 0.72800,-1.30000,2.40000 };
+    obj->vertices[244] = { 0.00000,-1.30000,2.40000 };
+    obj->vertices[245] = { -0.22400,-0.40000,2.55000 };
+    obj->vertices[246] = { -0.40000,-0.22400,2.55000 };
+    obj->vertices[247] = { -0.40000,0.00000,2.55000 };
+    obj->vertices[248] = { -0.72800,-1.30000,2.55000 };
+    obj->vertices[249] = { -1.30000,-0.72800,2.55000 };
+    obj->vertices[250] = { -1.30000,0.00000,2.55000 };
+    obj->vertices[251] = { -0.72800,-1.30000,2.40000 };
+    obj->vertices[252] = { -1.30000,-0.72800,2.40000 };
+    obj->vertices[253] = { -1.30000,0.00000,2.40000 };
+    obj->vertices[254] = { -0.40000,0.22400,2.55000 };
+    obj->vertices[255] = { -0.22400,0.40000,2.55000 };
+    obj->vertices[256] = { 0.00000,0.40000,2.55000 };
+    obj->vertices[257] = { -1.30000,0.72800,2.55000 };
+    obj->vertices[258] = { -0.72800,1.30000,2.55000 };
+    obj->vertices[259] = { 0.00000,1.30000,2.55000 };
+    obj->vertices[260] = { -1.30000,0.72800,2.40000 };
+    obj->vertices[261] = { -0.72800,1.30000,2.40000 };
+    obj->vertices[262] = { 0.00000,1.30000,2.40000 };
+    obj->vertices[263] = { 0.22400,0.40000,2.55000 };
+    obj->vertices[264] = { 0.40000,0.22400,2.55000 };
+    obj->vertices[265] = { 0.72800,1.30000,2.55000 };
+    obj->vertices[266] = { 1.30000,0.72800,2.55000 };
+    obj->vertices[267] = { 0.72800,1.30000,2.40000 };
+    obj->vertices[268] = { 1.30000,0.72800,2.40000 };
+    obj->vertices[269] = { 0.00000,0.00000,0.00000 };
+    obj->vertices[270] = { 1.50000,0.00000,0.15000 };
+    obj->vertices[271] = { 1.50000,0.84000,0.15000 };
+    obj->vertices[272] = { 0.84000,1.50000,0.15000 };
+    obj->vertices[273] = { 0.00000,1.50000,0.15000 };
+    obj->vertices[274] = { 1.50000,0.00000,0.07500 };
+    obj->vertices[275] = { 1.50000,0.84000,0.07500 };
+    obj->vertices[276] = { 0.84000,1.50000,0.07500 };
+    obj->vertices[277] = { 0.00000,1.50000,0.07500 };
+    obj->vertices[278] = { 1.42500,0.00000,0.00000 };
+    obj->vertices[279] = { 1.42500,0.79800,0.00000 };
+    obj->vertices[280] = { 0.79800,1.42500,0.00000 };
+    obj->vertices[281] = { 0.00000,1.42500,0.00000 };
+    obj->vertices[282] = { -0.84000,1.50000,0.15000 };
+    obj->vertices[283] = { -1.50000,0.84000,0.15000 };
+    obj->vertices[284] = { -1.50000,0.00000,0.15000 };
+    obj->vertices[285] = { -0.84000,1.50000,0.07500 };
+    obj->vertices[286] = { -1.50000,0.84000,0.07500 };
+    obj->vertices[287] = { -1.50000,0.00000,0.07500 };
+    obj->vertices[288] = { -0.79800,1.42500,0.00000 };
+    obj->vertices[289] = { -1.42500,0.79800,0.00000 };
+    obj->vertices[290] = { -1.42500,0.00000,0.00000 };
+    obj->vertices[291] = { -1.50000,-0.84000,0.15000 };
+    obj->vertices[292] = { -0.84000,-1.50000,0.15000 };
+    obj->vertices[293] = { 0.00000,-1.50000,0.15000 };
+    obj->vertices[294] = { -1.50000,-0.84000,0.07500 };
+    obj->vertices[295] = { -0.84000,-1.50000,0.07500 };
+    obj->vertices[296] = { 0.00000,-1.50000,0.07500 };
+    obj->vertices[297] = { -1.42500,-0.79800,0.00000 };
+    obj->vertices[298] = { -0.79800,-1.42500,0.00000 };
+    obj->vertices[299] = { 0.00000,-1.42500,0.00000 };
+    obj->vertices[300] = { 0.84000,-1.50000,0.15000 };
+    obj->vertices[301] = { 1.50000,-0.84000,0.15000 };
+    obj->vertices[302] = { 0.84000,-1.50000,0.07500 };
+    obj->vertices[303] = { 1.50000,-0.84000,0.07500 };
+    obj->vertices[304] = { 0.79800,-1.42500,0.00000 };
+    obj->vertices[305] = { 1.42500,-0.79800,0.00000 };
+
+}
+
+void createCube(Object* obj, float size) {
+    obj->isCustomChar = false;
+    obj->v_Length = 8;
+    obj->l_Length = 12;
+
+    resetTransform(&obj->transform);
+
+    float posX = obj->transform.position.x;
+    float posY = obj->transform.position.y;
+    float posZ = obj->transform.position.z;
+
+    obj->vertices = (Vector3*)malloc(sizeof(Vector3) * obj->v_Length);
+    obj->vertexLine = (Line*)malloc(sizeof(Line) * obj->l_Length);
+
+    obj->vertices[0] = { posX + (-size),posY + (-size),posZ + (size) };
+    obj->vertices[1] = { posX + (size),posY + (-size),posZ + (size) };
+    obj->vertices[2] = { posX + (size),posY + (-size),posZ + (-size) };
+    obj->vertices[3] = { posX + (-size),posY + (-size),posZ + (-size) };
+    obj->vertices[4] = { posX + (-size),posY + (size),posZ + (size) };
+    obj->vertices[5] = { posX + (size),posY + (size),posZ + (size) };
+    obj->vertices[6] = { posX + (size),posY + (size),posZ + (-size) };
+    obj->vertices[7] = { posX + (-size),posY + (size),posZ + (-size) };
+
+    obj->vertexLine[0] = { 0,1 };
+    obj->vertexLine[1] = { 1,2 };
+    obj->vertexLine[2] = { 2,3 };
+    obj->vertexLine[3] = { 3,0 };
+    obj->vertexLine[4] = { 4,5 };
+    obj->vertexLine[5] = { 5,6 };
+    obj->vertexLine[6] = { 6,7 };
+    obj->vertexLine[7] = { 7,4 };
+    obj->vertexLine[8] = { 0,4 };
+    obj->vertexLine[9] = { 1,5 };
+    obj->vertexLine[10] = { 2,6 };
+    obj->vertexLine[11] = { 3,7 };
+}
+
+void createEquilateralTriangle(Object* obj, float sideLength) {
+    obj->isCustomChar = false;
+    obj->v_Length = 4;
+    obj->l_Length = 6;
+
+    resetTransform(&obj->transform);
+
+    obj->verteicesChar = (char*)malloc(sizeof(char) * obj->v_Length);
+    obj->vertices = (Vector3*)malloc(sizeof(Vector3) * obj->v_Length);
+    obj->vertexLine = (Line*)malloc(sizeof(Line) * obj->l_Length);
+
+    obj->vertices[0] = { 0,0,1 };
+    obj->vertices[1] = { -1,0,-1 };
+    obj->vertices[2] = { 1,0,-1 };
+    obj->vertices[3] = { 0,2,0 };
+
+    obj->vertexLine[0] = { 0,1 };
+    obj->vertexLine[1] = { 1,2 };
+    obj->vertexLine[2] = { 2,0 };
+    obj->vertexLine[3] = { 0,3 };
+    obj->vertexLine[4] = { 1,3 };
+    obj->vertexLine[5] = { 2,3 };
+
+    //float radius = sideLength / (sqrt(3.0f)); // 정삼각형의 외접원의 반지름 계산
+    //
+    //for (int i = 0; i < 3; i++) {
+    //    // 120도씩 회전하며 꼭지점 계산
+    //    float angle = i * 2.0f * PI / 3.0f;
+    //    obj->vertices[i].x = radius * cos(angle);
+    //    obj->vertices[i].y = radius * sin(angle);
+    //    obj->vertices[i].z = 0; // 평면 상에 정삼각형 생성
+    //}
+}
